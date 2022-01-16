@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void bfs(vector<int> adj[], int n){
+void bfs(vector<int> adj[], bool visited[], int n){
     queue<int> q;
     bool visited[n] = {0};
     int distance[n] = {0};
@@ -36,6 +36,6 @@ int main(){
     while(cin >> v1 >> v2){
         adj[v1-1].push_back(v2-1);
     }
-
-    bfs(adj, n);
+    bool visited[n] = {0};
+    bfs(adj, visited, n);
 }
