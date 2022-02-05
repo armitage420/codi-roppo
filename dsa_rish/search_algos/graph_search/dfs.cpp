@@ -2,24 +2,36 @@
 #include <iterator>
 using namespace std;
 
-void dfsInternal(vector<int> adj[], bool visit[], int start) {
+void dfsInternal(vector<int> adj[], bool visit[], int node) {
 
-    if(visit[start]) {
+    if(visit[node]) {
         return;
     }
 
-    visit[start] = true;
-    cout << " visiting node : " << start + 1 << "\n";
-    for( auto u : adj[start] ) {
+    visit[node] = true;
+    cout << "Visiting node : " << node + 1 << "\n";
+    for( auto u : adj[node] ) {
         dfsInternal(adj, visit, u);
     }
 }
 
-void dfs(vector<int> adj[], int size, int start) {
+void dfs(vector<int> adj[], int size) {
 
-    bool visit[size];
+    bool visit[size] = {false};
 
-    dfsInternal(adj, visit, start);
+    for(int i=0; i<size; i++) {
+        dfsInternal(adj, visit, i);
+    }
+}
+
+void printGraph(vector<int> adj[], int size) {
+    
+    for(int i=0; i<size; i++) {
+        cout<<"Node "<<i+1<<" : ";
+        for( auto s : adj[i] )
+            cout<<s+1<<" ";
+        cout<<"\n";
+    }
 }
 
 void input() {
@@ -38,15 +50,10 @@ void input() {
         adj[v1-1].push_back(v2-1);
     }
 
-    // test graph storage
-    for(int i=0; i<nodeCount; i++) {
-        cout<<"Node "<<i+1<<" : ";
-        for( auto s : adj[i] )
-            cout<<s+1<<" ";
-        cout<<"\n";
-    }
+    // Uncomment this line below to visualize the graph
+    // printGraph(adj, nodeCount);
 
-    dfs(adj, nodeCount, 4);
+    dfs(adj, nodeCount);
 }
  
 int main(){
