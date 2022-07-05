@@ -17,8 +17,8 @@ int dfs(vector<int> adj[], int visited1[], int visited2[], int u){
 
 int main(){
         #ifndef ONLINE_JUDGE
-        freopen("input.txt", "r", stdin);
-        freopen("output.txt", "w", stdout);
+        freopen("../input.txt", "r", stdin);
+        freopen("../output.txt", "w", stdout);
     #endif
 
     int n;

@@ -25,8 +25,8 @@ int binarySearch(vector<int> &v, int key){
 int main(){
 
     #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    freopen("../input.txt", "r", stdin);
+    freopen("../output.txt", "w", stdout);
     #endif
 
     
